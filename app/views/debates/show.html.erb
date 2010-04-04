@@ -6,19 +6,25 @@
 		<%= @debate.description %>
 	</p>
 	
+</article>
+
+<section>
 	<p class="question"><%= @debate.question %></p>
 	<p><%= @debate.challenger_option %> ------------ <%= @debate.defender_option %> </p>
-</article>
+	<%= render_chart(@debate) %>
+	<p>Weźnij udział w debacie:</p>
+	<%= text_field_tag "chellenger", "", :value => chellenger_debate_arguments_url(@debate.permalink) %><br />
+	<%= text_field_tag "chellenger", "", :value => defender_debate_arguments_url(@debate.permalink) %>
+</section>
 
 <section class="arguments">
 	<ul>
 		<% for argument in @debate.arguments %>
 		<li>
-			<%= link_to argument.title, argument.url, :target => "_blank" %> - <%= argument.description %>
+			<%= link_to argument.title, [@debate, argument] %> <br />
+			<%= argument.description %>
 		</li>
 		<% end %>
 	</ul>
 </section>
 
-<%= text_field_tag "chellenger", "", :value => chellenger_debate_arguments_url(@debate.permalink) %>
-<%= text_field_tag "chellenger", "", :value => defender_debate_arguments_url(@debate.permalink) %>

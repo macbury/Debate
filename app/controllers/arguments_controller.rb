@@ -1,13 +1,18 @@
 class ArgumentsController < ApplicationController
 	skip_before_filter :verify_authenticity_token
-	before_filter :check_if_trackback
+	before_filter :check_if_trackback, :except => [:show]
 	
 	def chellenger
-		create_argument(1)
+		create_argument(ARGUMENT_CHELLENGER)
 	end
 	
 	def defender
-		create_argument(1)
+		create_argument(ARGUMENT_DEFENDER)
+	end
+	
+	def show
+		@debate = Debate.find_by_permalink!(params[:debate_id])
+		@argument = @debate.arguments.find(params[:id])
 	end
 	
 	protected
@@ -17,6 +22,7 @@ class ArgumentsController < ApplicationController
 			@argument.url = params[:url]
 			@argument.description = params[:excerpt]
 			@argument.title = params[:title]
+			@argument.val = val
 			@argument.save
 
 			render :action => "trackback.xml", :layout => false
