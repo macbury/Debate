@@ -1,0 +1,1 @@
+curl -d "url=http://google.pl" http://0.0.0.0:3000/debates/ateizm-pod-presja/arguments/chellenger

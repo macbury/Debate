@@ -1,0 +1,40 @@
+<h1>Editing debate</h1>
+
+<% form_for(@debate) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :question %><br />
+    <%= f.text_field :question %>
+  </p>
+  <p>
+    <%= f.label :challenger_option %><br />
+    <%= f.text_field :challenger_option %>
+  </p>
+  <p>
+    <%= f.label :defender_option %><br />
+    <%= f.text_field :defender_option %>
+  </p>
+  <p>
+    <%= f.label :permalink %><br />
+    <%= f.text_field :permalink %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @debate %> |
+<%= link_to 'Back', debates_path %>

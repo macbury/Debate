@@ -1,0 +1,16 @@
+<% @debates.each do |debate| %>
+<article class="debate">
+	<header>
+		<h2><%= link_to debate.title, debate %></h2>
+	</header>
+	<p>
+		<%= debate.description %>
+	</p>
+	
+	<p class="question"><%= debate.question %></p>
+	<p><%= debate.challenger_option %> ------------ <%= debate.defender_option %> </p>
+</article>
+
+<% end %>
+
+<%= link_to 'New debate', new_debate_path %>

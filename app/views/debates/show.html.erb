@@ -1,0 +1,24 @@
+<article class="debate">
+	<header>
+		<h2><%= link_to @debate.title, @debate %></h2>
+	</header>
+	<p>
+		<%= @debate.description %>
+	</p>
+	
+	<p class="question"><%= @debate.question %></p>
+	<p><%= @debate.challenger_option %> ------------ <%= @debate.defender_option %> </p>
+</article>
+
+<section class="arguments">
+	<ul>
+		<% for argument in @debate.arguments %>
+		<li>
+			<%= argument.url %>
+		</li>
+		<% end %>
+	</ul>
+</section>
+
+<%= text_field_tag "chellenger", "", :value => chellenger_debate_arguments_url(@debate.permalink) %>
+<%= text_field_tag "chellenger", "", :value => defender_debate_arguments_url(@debate.permalink) %>
