@@ -16,6 +16,7 @@ class ArgumentsController < ApplicationController
 			@argument = @debate.arguments.new
 			@argument.url = params[:url]
 			@argument.description = params[:excerpt]
+			@argument.title = params[:title]
 			@argument.save
 
 			render :action => "trackback.xml", :layout => false

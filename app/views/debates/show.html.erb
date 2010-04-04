@@ -14,7 +14,7 @@
 	<ul>
 		<% for argument in @debate.arguments %>
 		<li>
-			<%= argument.url %>
+			<%= link_to argument.title, argument.url, :target => "_blank" %> - <%= argument.description %>
 		</li>
 		<% end %>
 	</ul>
