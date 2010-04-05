@@ -1,4 +1,4 @@
-<article class="debate">
+<article>
 	<header>
 		<h2><%= link_to @debate.title, @debate %></h2>
 	</header>
@@ -8,9 +8,8 @@
 	
 </article>
 
-<section>
-	<p class="question"><%= @debate.question %></p>
-	<p><%= @debate.challenger_option %> ------------ <%= @debate.defender_option %> </p>
+<section class="question">
+	<%= @debate.question %>
 	<%= render_chart(@debate) %>
 	<p>Weźnij udział w debacie:</p>
 	<%= text_field_tag "chellenger", "", :value => chellenger_debate_arguments_url(@debate.permalink) %><br />

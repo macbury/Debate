@@ -48,7 +48,7 @@ ul {
   margin: 10px auto;
 }
 .debate { margin-bottom: 2px; }
-.debate .question {
+.question {
   font-weight: bold;
   text-align: center;
 }
